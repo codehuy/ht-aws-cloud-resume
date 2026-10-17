@@ -1,0 +1,17 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+
+# Local secrets
+.env
