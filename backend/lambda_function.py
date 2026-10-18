@@ -1,4 +1,7 @@
+import json
+import os
 import boto3
+
 
 TABLE_NAME = os.environ["TABLE_NAME"]
 ALLOWED_ORIGIN = os.environ["ALLOWED_ORIGIN"]
