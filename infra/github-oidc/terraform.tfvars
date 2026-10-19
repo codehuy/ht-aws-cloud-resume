@@ -1,0 +1,1 @@
+github_repo = "codehuy/ht-aws-cloud-resume"
