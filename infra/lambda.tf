@@ -68,7 +68,6 @@ resource "aws_lambda_function" "visitor_count" {
   environment {
     variables = {
       TABLE_NAME     = aws_dynamodb_table.visitor_count.name
-      ALLOWED_ORIGIN = "https://huy-tran.com"
     }
   }
 
