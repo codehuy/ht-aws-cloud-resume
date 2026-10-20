@@ -85,7 +85,7 @@ resource "aws_iam_openid_connect_provider" "github" {
 
 data "aws_iam_policy_document" "github_trust" {
   statement {
-    actions = ["sts:AssumeRoleWithWebIdentity", "sts:TagSession"]
+    tactions = ["sts:AssumeRoleWithWebIdentity", "sts:TagSession"]
 
     principals {
       type        = "Federated"
