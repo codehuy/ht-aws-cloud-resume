@@ -1,1 +1,1 @@
-github_repo = "codehuy/ht-aws-cloud-resume"
+github_repo = "codehuy@64755394/ht-aws-cloud-resume@1423708359"
