@@ -85,7 +85,7 @@ resource "aws_iam_openid_connect_provider" "github" {
 
 data "aws_iam_policy_document" "github_trust" {
   statement {
-    tactions = ["sts:AssumeRoleWithWebIdentity", "sts:TagSession"]
+    actions = ["sts:AssumeRoleWithWebIdentity", "sts:TagSession"]
 
     principals {
       type        = "Federated"
@@ -262,6 +262,28 @@ data "aws_iam_policy_document" "terraform" {
       "acm:RemoveTagsFromCertificate",
     ]
     resources = [data.aws_acm_certificate.site.arn]
+  }
+
+  statement {
+    sid = "Alerts"
+    actions = [
+      "sns:CreateTopic",
+      "sns:SetTopicAttributes",
+      "sns:Subscribe",
+      "sns:TagResource",
+      "sns:UntagResource",
+    ]
+    resources = ["arn:aws:sns:us-east-1:${data.aws_caller_identity.current.account_id}:visitor-count-alerts"]
+  }
+
+  statement {
+    sid = "Alarms"
+    actions = [
+      "cloudwatch:PutMetricAlarm",
+      "cloudwatch:TagResource",
+      "cloudwatch:UntagResource",
+    ]
+    resources = ["arn:aws:cloudwatch:us-east-1:${data.aws_caller_identity.current.account_id}:alarm:visitor-count-errors"]
   }
 }
 
